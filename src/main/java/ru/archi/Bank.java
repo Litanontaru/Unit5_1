@@ -12,16 +12,12 @@ public class Bank {
         this.moneyAmount.set(moneyAmount);
     }
 
-    public synchronized void getMoney(int amount) throws NoMoneyException {
+    public synchronized void withdrawMoney(int amount) {
         int a = moneyAmount.get();
-        if(a >= amount){
-            moneyAmount.set(a - amount);
-        }else {
-            throw new NoMoneyException("В банке не хватает денег");
-        }
+        moneyAmount.set(a - amount);
     }
 
-    public boolean hasMoney(){
-        return moneyAmount.get() > 0;
+    public synchronized boolean hasMoney(int amount){
+        return moneyAmount.get() > amount;
     }
 }

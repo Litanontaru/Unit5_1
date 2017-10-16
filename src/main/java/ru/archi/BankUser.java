@@ -11,12 +11,8 @@ public class BankUser {
     }
 
     public void withdrawMoney(){
-        try {
-            while (true) {
-                bank.getMoney(10);
-            }
-        }catch (NoMoneyException e){
-            System.out.println("Не могу снять деньги");
+        while (bank.hasMoney(10)) {
+            bank.withdrawMoney(10);
         }
     }
 }

@@ -6,6 +6,7 @@ import java.util.concurrent.atomic.AtomicInteger;
  * Created by Черный on 11.10.2017.
  */
 public class Bank {
+    //при использовании synchronized атомик не нужен
     private AtomicInteger moneyAmount = new AtomicInteger();
 
     public Bank(int moneyAmount){
